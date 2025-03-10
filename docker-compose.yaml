@@ -1,0 +1,11 @@
+services:
+  jupyter:
+    container_name: jupyter
+    image: jupyter/datascience-notebook
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./data:/home/jovyan/data
+    environment:
+      - JUPYTER_TOKEN=machine-learning
+    command: start-notebook.sh --NotebookApp.token=${JUPYTER_TOKEN}
